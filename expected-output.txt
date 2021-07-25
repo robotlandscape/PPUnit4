@@ -1,0 +1,13 @@
+Welcome to the Battle Royale
+
+Game Turnament Registration
+
+
+*****************MAIN MENU*******************
+
+    A: Find pre-registered player
+    B: Find the number of a specific player
+    C: Print list of players
+    Q: Quit/Log Out
+
+    Please enter your choice:

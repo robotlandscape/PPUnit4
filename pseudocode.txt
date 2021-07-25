@@ -1,0 +1,24 @@
+Flair text: Welcome, game tournament, main menu, options
+open the file as f
+while true: 
+    input, please enter your choice
+    if option = "a":
+	enter a number
+	for (number + 1) iterations in row:
+	    take the last entry and print its information with pretty formatting
+    elif option = "b":
+	disregard first line (python "next()")
+	for row in reader:
+	    "search" for a player handle or name (?)
+	    print the number of the found player
+    elif option = "c":
+	for line in file: 
+	    print line
+    elif option = "q":
+	idk goodbye message
+	break
+    else: 
+	"please try again"
+
+
+
