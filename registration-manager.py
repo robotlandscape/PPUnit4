@@ -5,15 +5,24 @@ raw_data = open("battle_royale.csv", "r")
 address = csv.reader(raw_data)
 
 
-def prompt():
+def prompt_print():
     # options
     print("\n\n" + "*"*20 + "MAIN MENU" + "*"*20)
     print("\tA: Find pre-registered player")
     print("\tB: Find the number of a specific player")
     print("\tC: Print list of players")
     print("\tDo ^C (Ctrl c) at any time to exit.")
-    return input("\t > ").lower()
 
+
+def get_abc():
+    try: 
+        choice = str(input("\t > "))
+    except ValueError: 
+        print("Please enter either A, B or C.")
+        return get_abc()
+    if choice != ("a" or "b" or "c"):
+        print("Please enter either A, B or C.")
+        return get_abc()
 
 def number_to_player():
     print("Enter a number (NYI)")
@@ -32,8 +41,9 @@ def print_players():
 
 def main():
     print("Welcome to the Battle Royale Game Tournament Registration!")
+    prompt_print()
     try: 
-        choice = prompt()
+        choice = get_abc()
         if choice == 'a':
             number_to_player()
         if choice == 'b':
