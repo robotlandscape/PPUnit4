@@ -1,27 +1,28 @@
 #!/usr/bin/python
 import csv 
+import tabulate
 
 raw_data = open("battle_royale.csv", "r")
 address = csv.reader(raw_data)
 
-
 def prompt_print():
     # options
-    print("\n\n" + "*"*20 + "MAIN MENU" + "*"*20)
-    print("\tA: Find pre-registered player")
-    print("\tB: Find the number of a specific player")
-    print("\tC: Print list of players")
-    print("\tDo ^C (Ctrl c) at any time to exit.")
+    print("\n" + "*"*20 + "MAIN MENU" + "*"*20 + "\n")
+    print("\ta: Find pre-registered player")
+    print("\tb: Find the number of a specific player")
+    print("\tc: Print list of players")
+    print("\tCtrl-c exits at any point.")
 
 
 def get_abc():
     try: 
         choice = str(input("\t > "))
+        return choice
     except ValueError: 
         print("Please enter either A, B or C.")
         return get_abc()
-    if choice != ("a" or "b" or "c"):
-        print("Please enter either A, B or C.")
+    if choice not in ("a", "b", "c"): # thanks @isagalev@mastodon.social
+        print("Please enter either a, b or c. (try a lowercase!)")
         return get_abc()
 
 def number_to_player():
@@ -34,22 +35,17 @@ def player_to_number():
     return 0
 
 
-def print_players():
-    for line in address:
-        print(line)
-
-
 def main():
-    print("Welcome to the Battle Royale Game Tournament Registration!")
-    prompt_print()
     try: 
+        print("Welcome to the Battle Royale Game Tournament Registration!")
+        prompt_print()
         choice = get_abc()
-        if choice == 'a':
+        if choice == "a":
             number_to_player()
-        if choice == 'b':
+        if choice == "b":
             player_to_number()
-        if choice == 'c':
-            print_players()
+        if choice == "c":
+            print(tabulate.tabulate(address, headers="firstrow"))
     except KeyboardInterrupt:
         print("\nBye!")
 
