@@ -4,6 +4,7 @@ import tabulate
 
 raw_data = open("battle_royale.csv", "r")
 address = csv.reader(raw_data)
+data_list = list(address)
 
 def prompt_print():
     # options
@@ -26,18 +27,18 @@ def get_abc():
         return get_abc()
 
 def number_to_player():
-    print("Enter a number (NYI)")
-    return 0
+    index = int(input("What player number do you need to find? > "))
+    print(data_list[index])
 
 
 def player_to_number():
     print("Search for a player name! (NYI)")
-    return 0
-
+    query = str(input("What name do you want to look for? > "))
+    print(list(address))
 
 def main():
     try: 
-        print("Welcome to the Battle Royale Game Tournament Registration!")
+        print("\nWelcome to the Battle Royale Game Tournament Registration!")
         prompt_print()
         choice = get_abc()
         if choice == "a":
@@ -46,6 +47,7 @@ def main():
             player_to_number()
         if choice == "c":
             print(tabulate.tabulate(address, headers="firstrow"))
+            print("Bye!")
     except KeyboardInterrupt:
         print("\nBye!")
 
