@@ -4,7 +4,7 @@ import tabulate
 
 raw_data = open("battle_royale.csv", "r")
 address = csv.reader(raw_data)
-data_list = list(address)
+#data_list = list(address)
 
 def prompt_print():
     # options
@@ -28,13 +28,14 @@ def get_abc():
 
 def number_to_player():
     index = int(input("What player number do you need to find? > "))
-    print(data_list[index])
+    print(list(address))
 
 
 def player_to_number():
-    print("Search for a player name! (NYI)")
-    query = str(input("What name do you want to look for? > "))
-    print(list(address))
+    #query = str(input("\nWhat name do you want to look for? > "))
+    for row in address:
+        print(row)
+
 
 def main():
     try: 
@@ -52,3 +53,4 @@ def main():
         print("\nBye!")
 
 main()
+#player_to_number()
