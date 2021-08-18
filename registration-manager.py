@@ -4,7 +4,6 @@ import tabulate
 
 raw_data = open("battle_royale.csv", "r")
 address = csv.reader(raw_data)
-#data_list = list(address)
 
 def prompt_print():
     # options
@@ -35,11 +34,18 @@ def number_to_player(): # option A
         headers="firstrow") + "\n\nBye!")
 
 
-
 def player_to_number(): # option B
-    #query = str(input("\nWhat name do you want to look for? > "))
-    for row in address:
-        print(row)
+    query = str(input("\nWhat name do you want to look for? > "))
+    matches = [["Avatar Name", "Player Name", "Player Number"]]
+    for line in address:
+        for entry in line: 
+            if entry.lower().find(query.lower()) > 0:
+                matches.append(line)
+                
+    if matches == [["Avatar Name", "Player Name", "Player Number"]]:
+        print("No matches found, try again!")
+    else: 
+        print("\n" + tabulate.tabulate(matches, headers="firstrow") + "\nBye!")
 
 
 def main():
@@ -62,4 +68,3 @@ def main():
         print("\nBye!")
 
 main()
-#player_to_number()
