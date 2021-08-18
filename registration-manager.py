@@ -29,7 +29,9 @@ def get_abc():
 def number_to_player():
     index = int(input("What player number do you need to find? > "))
     #print(list(address)[index])
-    print(tabulate.tabulate([["Avatar Name", "Player Name", "Player Number"], list(address)[index]], headers="firstrow"))
+    print(tabulate.tabulate([["Avatar Name", "Player Name", "Player Number"],
+        list(address)[index]], 
+        headers="firstrow"))
 
 
 def player_to_number():
