@@ -26,15 +26,17 @@ def get_abc():
         print("Please enter either a, b or c. (try a lowercase!)")
         return get_abc()
 
-def number_to_player():
+def number_to_player(): # option A
     index = int(input("What player number do you need to find? > "))
     #print(list(address)[index])
-    print(tabulate.tabulate([["Avatar Name", "Player Name", "Player Number"],
+    print("\n" + tabulate.tabulate(
+        [["Avatar Name", "Player Name", "Player Number"],
         list(address)[index]], 
-        headers="firstrow"))
+        headers="firstrow") + "\n\nBye!")
 
 
-def player_to_number():
+
+def player_to_number(): # option B
     #query = str(input("\nWhat name do you want to look for? > "))
     for row in address:
         print(row)
@@ -46,7 +48,11 @@ def main():
         prompt_print()
         choice = get_abc()
         if choice == "a":
-            number_to_player()
+            try: 
+                number_to_player()
+            except IndexError:
+                print("Please enter a number between 1 and 50.")
+                number_to_player()
         if choice == "b":
             player_to_number()
         if choice == "c":
