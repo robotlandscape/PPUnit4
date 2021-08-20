@@ -8,9 +8,9 @@ address = csv.reader(raw_data)
 def prompt_print():
     # options
     print("\n" + "*"*20 + "MAIN MENU" + "*"*20 + "\n")
-    print("\ta: Find pre-registered player")
-    print("\tb: Find the number of a specific player")
-    print("\tc: Print list of players")
+    print("\ta: Player ID --> Player Summary")
+    print("\tb: Player Search")
+    print("\tc: List players")
     print("\tCtrl-c exits at any point.")
 
 
